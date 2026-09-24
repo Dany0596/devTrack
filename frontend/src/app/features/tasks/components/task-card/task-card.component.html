@@ -1,0 +1,14 @@
+<article class="task-card">
+  <header>
+    <h3>{{ task.title }}</h3>
+    <div class="badges">
+      <span class="badge" [attr.data-priority]="task.priority">{{ task.priority }}</span>
+      <span class="badge" [attr.data-status]="task.status">{{ task.status }}</span>
+    </div>
+  </header>
+  <p class="description">{{ task.description || 'No description provided.' }}</p>
+  <footer>
+    <button type="button" class="secondary" (click)="onViewTimeEntries()">Time entries</button>
+    <button type="button" class="danger" (click)="onDelete()">Delete</button>
+  </footer>
+</article>

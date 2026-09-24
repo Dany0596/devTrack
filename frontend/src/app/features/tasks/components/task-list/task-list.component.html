@@ -1,0 +1,24 @@
+<section>
+  @if (projectId() !== null) {
+    <a routerLink="/projects" class="back-link">&larr; Back to projects</a>
+  }
+  <h2>{{ projectId() !== null ? 'Tasks' : 'All Tasks' }}</h2>
+
+  @if (projectId() !== null) {
+    <app-task-form (create)="onCreate($event)" />
+  } @else {
+    <p class="hint">Showing tasks across all projects. Open a project to add a new task.</p>
+  }
+
+  @if (loading()) {
+    <p>Loading tasks...</p>
+  } @else if (tasks().length === 0) {
+    <p>No tasks yet.</p>
+  } @else {
+    <div class="task-grid">
+      @for (task of tasks(); track task.id) {
+        <app-task-card [task]="task" (delete)="onDelete($event)" (viewTimeEntries)="onViewTimeEntries($event)" />
+      }
+    </div>
+  }
+</section>

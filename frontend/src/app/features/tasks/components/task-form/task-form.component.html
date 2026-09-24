@@ -1,0 +1,25 @@
+<form class="task-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="field">
+    <label for="title">Title</label>
+    <input id="title" type="text" formControlName="title" placeholder="Task title" />
+    @if (form.controls.title.invalid && form.controls.title.touched) {
+      <span class="error">Title is required (max 200 characters).</span>
+    }
+  </div>
+
+  <div class="field">
+    <label for="description">Description</label>
+    <textarea id="description" formControlName="description" rows="2" placeholder="Optional description"></textarea>
+  </div>
+
+  <div class="field">
+    <label for="priority">Priority</label>
+    <select id="priority" formControlName="priority">
+      @for (priority of priorities; track priority) {
+        <option [value]="priority">{{ priority }}</option>
+      }
+    </select>
+  </div>
+
+  <button type="submit" class="primary">Add task</button>
+</form>
