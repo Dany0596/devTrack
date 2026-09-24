@@ -1,0 +1,21 @@
+<form class="entry-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="field">
+    <label for="date">Date</label>
+    <input id="date" type="date" formControlName="date" />
+  </div>
+
+  <div class="field">
+    <label for="hours">Hours</label>
+    <input id="hours" type="number" step="0.25" min="0.25" formControlName="hours" />
+    @if (form.controls.hours.invalid && form.controls.hours.touched) {
+      <span class="error">Hours must be greater than zero.</span>
+    }
+  </div>
+
+  <div class="field">
+    <label for="notes">Notes</label>
+    <textarea id="notes" formControlName="notes" rows="2" placeholder="Optional notes"></textarea>
+  </div>
+
+  <button type="submit" class="primary">Log time</button>
+</form>

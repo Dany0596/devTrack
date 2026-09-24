@@ -1,0 +1,10 @@
+<article class="entry-card">
+  <header>
+    <span class="date">{{ entry.date }}</span>
+    <span class="hours">{{ entry.hours }}h</span>
+  </header>
+  <p class="notes">{{ entry.notes || 'No notes.' }}</p>
+  <footer>
+    <button type="button" class="danger" (click)="onDelete()">Delete</button>
+  </footer>
+</article>

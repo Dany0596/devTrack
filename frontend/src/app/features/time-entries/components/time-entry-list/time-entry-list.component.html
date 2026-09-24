@@ -1,0 +1,25 @@
+<section>
+  @if (taskId() !== null) {
+    <a routerLink="/projects" class="back-link">&larr; Back to projects</a>
+  }
+  <h2>{{ taskId() !== null ? 'Time entries' : 'All Time Entries' }}</h2>
+  <p class="total">Total logged: <strong>{{ totalHours() }}h</strong></p>
+
+  @if (taskId() !== null) {
+    <app-time-entry-form (create)="onCreate($event)" />
+  } @else {
+    <p class="hint">Showing time entries across all tasks. Open a task to log new time.</p>
+  }
+
+  @if (loading()) {
+    <p>Loading time entries...</p>
+  } @else if (entries().length === 0) {
+    <p>No time entries yet.</p>
+  } @else {
+    <div class="entry-grid">
+      @for (entry of entries(); track entry.id) {
+        <app-time-entry-card [entry]="entry" (delete)="onDelete($event)" />
+      }
+    </div>
+  }
+</section>
