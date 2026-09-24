@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: devtrack-backend
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/devtrack
+    driver-class-name: org.postgresql.Driver
+    username: devtrack
+    password: devtrack
+
+  jpa:
+    hibernate:
+      # "update" auto-generates/adjusts the schema from the JPA entities - convenient for
+      # this scaffold, but not safe for production (no migration history, can't be reviewed
+      # before applying). Switch to Flyway/Liquibase with ddl-auto: validate once this app
+      # has real data to protect.
+      ddl-auto: update
+    show-sql: false
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+
+server:
+  port: 8081
+
+logging:
+  level:
+    com.devtrack: DEBUG
