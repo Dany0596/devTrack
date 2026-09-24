@@ -1,0 +1,60 @@
+# ==============================
+# Backend (Java / Maven)
+# ==============================
+backend/target/
+*.class
+*.jar
+!.mvn/wrapper/maven-wrapper.jar
+
+# ==============================
+# Frontend (Angular / Node)
+# ==============================
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+frontend/coverage/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ==============================
+# Eclipse
+# ==============================
+# Workspace metadata (created here because the Eclipse workspace was pointed
+# at the project root instead of a separate folder) - never share this, it's
+# machine-specific state, not project config.
+.metadata/
+.recommenders/
+
+# Per-project Eclipse files - machine/user-specific (JRE paths, local settings).
+.classpath
+.project
+.settings/
+bin/
+
+# ==============================
+# IntelliJ IDEA
+# ==============================
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# ==============================
+# VS Code
+# ==============================
+.vscode/
+!.vscode/extensions.json
+
+# ==============================
+# OS
+# ==============================
+.DS_Store
+Thumbs.db
+
+# ==============================
+# Logs / local env
+# ==============================
+*.log
+.env
+.env.local
