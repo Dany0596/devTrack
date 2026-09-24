@@ -1,0 +1,11 @@
+<article class="project-card">
+  <header>
+    <h3>{{ project.name }}</h3>
+    <span class="status" [attr.data-status]="project.status">{{ project.status }}</span>
+  </header>
+  <p class="description">{{ project.description || 'No description provided.' }}</p>
+  <footer>
+    <button type="button" class="secondary" (click)="onViewTasks()">Tasks</button>
+    <button type="button" class="danger" (click)="onDelete()">Delete</button>
+  </footer>
+</article>
