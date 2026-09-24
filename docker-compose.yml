@@ -1,0 +1,22 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: devtrack-postgres
+    # Plaintext dev credentials, matching backend/src/main/resources/application.yml.
+    # Fine for a local-only container; replace with secrets before this ever leaves your machine.
+    environment:
+      POSTGRES_DB: devtrack
+      POSTGRES_USER: devtrack
+      POSTGRES_PASSWORD: devtrack
+    ports:
+      - "5432:5432"
+    volumes:
+      - devtrack-postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U devtrack -d devtrack"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  devtrack-postgres-data:
